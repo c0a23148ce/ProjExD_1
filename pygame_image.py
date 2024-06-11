@@ -10,6 +10,7 @@ def main():
     screen = pg.display.set_mode((800, 600))
     clock  = pg.time.Clock()
     bg_img = pg.image.load("fig/pg_bg.jpg")
+    bg_img2 = pg.transform.flip(bg_img, True, False)
     #こうかとん
     chara_img = pg.image.load("fig/3.png")
     chara_img = pg.transform.flip(chara_img, True, False)
@@ -20,8 +21,13 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
-        x = tmr%800
+        x = tmr%3200
         screen.blit(bg_img, [-x, 0])
+        screen.blit(bg_img2, [-x+1600, 0])
+
+        screen.blit(bg_img, [-x+3200, 0])
+        screen.blit(bg_img2, [-x+4800, 0])
+
 
         chara_rct = chara_img.get_rect() #こうかとんレクトの取得
         chara_rct.center = 300, 200
