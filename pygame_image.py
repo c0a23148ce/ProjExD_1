@@ -10,6 +10,7 @@ def main():
     screen = pg.display.set_mode((800, 600))
     clock  = pg.time.Clock()
     bg_img = pg.image.load("fig/pg_bg.jpg")
+    #こうかとん
     chara_img = pg.image.load("fig/3.png")
     chara_img = pg.transform.flip(chara_img, True, False)
     chara_img = pg.transform.rotozoom(chara_img, 10, 1.0)
@@ -20,6 +21,11 @@ def main():
             if event.type == pg.QUIT: return
 
         screen.blit(bg_img, [0, 0])
+
+        chara_rct = chara_img.get_rect() #こうかとんレクトの取得
+        chara_rct.center = 300, 200
+        screen.blit(chara_img, chara_rct)
+        
         pg.display.update()
         tmr += 1        
         clock.tick(10)
