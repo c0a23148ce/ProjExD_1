@@ -15,6 +15,9 @@ def main():
     chara_img = pg.image.load("fig/3.png")
     chara_img = pg.transform.flip(chara_img, True, False)
     chara_img = pg.transform.rotozoom(chara_img, 10, 1.0)
+    #こうかとんレクトの取得
+    chara_rct = chara_img.get_rect() 
+    chara_rct.center = 300, 200
 
     tmr = 0
     while True:
@@ -29,8 +32,17 @@ def main():
         screen.blit(bg_img2, [-x+4800, 0])
 
 
-        chara_rct = chara_img.get_rect() #こうかとんレクトの取得
-        chara_rct.center = 300, 200
+        key_lst = pg.key.get_pressed()
+        if key_lst[pg.K_UP]:
+            chara_rct.move_ip((0, -1))
+        if key_lst[pg.K_DOWN]:
+            chara_rct.move_ip((0, 1))
+        if key_lst[pg.K_LEFT]:
+            chara_rct.move_ip((-1, 0))
+        if key_lst[pg.K_UP]:
+            chara_rct.move_ip((1, 0))
+
+
         screen.blit(chara_img, chara_rct)
 
         pg.display.update()
