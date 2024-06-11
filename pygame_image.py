@@ -25,10 +25,10 @@ def main():
         chara_rct = chara_img.get_rect() #こうかとんレクトの取得
         chara_rct.center = 300, 200
         screen.blit(chara_img, chara_rct)
-        
+
         pg.display.update()
         tmr += 1        
-        clock.tick(10)
+        clock.tick(200)
 
 
 if __name__ == "__main__":
