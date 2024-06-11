@@ -39,11 +39,13 @@ def main():
             chara_rct.move_ip((0, 1))
         if key_lst[pg.K_LEFT]:
             chara_rct.move_ip((-1, 0))
-        if key_lst[pg.K_UP]:
-            chara_rct.move_ip((1, 0))
+        if key_lst[pg.K_RIGHT]:
+            chara_rct.move_ip((2, 0))
 
 
         screen.blit(chara_img, chara_rct)
+        chara_rct.move_ip((-1, 0))
+
 
         pg.display.update()
         tmr += 1   
